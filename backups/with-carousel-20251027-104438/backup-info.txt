@@ -1,0 +1,51 @@
+﻿HASH WEBSITE BACKUP - WITH CAROUSEL
+===================================
+Backup Date: 10/27/2025 10:44:38
+Backup Name: with-carousel-20251027-104438
+Description: Complete website with new carousel section between hero and products
+
+PROJECT STATUS:
+✅ Complete HTML structure with carousel
+✅ CSS for all sections including carousel
+✅ JavaScript functionality with carousel
+✅ 3D animations and interactions
+✅ Responsive design
+✅ Professional cannabis industry design
+
+SECTIONS INCLUDED:
+1. Hero Section (3D animated)
+2. Location Showcase Carousel (NEW)
+3. Products Catalog (6 categories)
+4. Digital Experience
+5. Single Location with Delivery Map
+6. Contact Section
+7. Footer
+
+FILES BACKED UP:
+index.html (39.17 KB)
+css/style.css (48.94 KB)
+assets/ (0 files)
+
+CAROUSEL FEATURES:
+- 5 interactive slides
+- Auto-play functionality
+- Touch/swipe support
+- Professional image placeholders
+- Supporting statistics
+- Mobile responsive
+
+TECHNICAL DETAILS:
+Total Files: 2
+Total Size: 88.11 KB
+Backup Format: Complete project structure
+
+RESTORE INSTRUCTIONS:
+1. Copy files from this backup to your project root
+2. Ensure CSS and JS paths are correct
+3. Open index.html in browser to test
+
+DEVELOPMENT NOTES:
+- Carousel added between Hero and Products sections
+- Placeholder images ready for actual photos
+- All animations and interactions tested
+- Mobile-responsive design implemented

@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HASH | Premium Digital Cannabis Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 3D Background Elements -->
+    <div class="bg-grid"></div>
+    <div class="floating-cube"></div>
+    <div class="floating-pyramid"></div>
+    <div class="particles-container" id="particles"></div>
+
+    <!-- Age Warning -->
+    <div class="age-warning">
+        <div class="warning-content">
+            ⚠️ YOU MUST BE 21+ TO ENTER | BY CONTINUING YOU CONFIRM LEGAL AGE
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-3d">HASH</div>
+                <div class="logo-glow"></div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="nav-link">HOME</a></li>
+                    <li><a href="#products" class="nav-link">PRODUCTS</a></li>
+                    <li><a href="#experience" class="nav-link">EXPERIENCE</a></li>
+                    <li><a href="#locations" class="nav-link">LOCATIONS</a></li>
+                    <li><a href="#contact" class="nav-link">CONTACT</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="nav-btn login-btn">LOGIN</button>
+                <button class="nav-btn cart-btn">
+                    <span class="cart-icon">🛒</span>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <!-- 3D Animated Product -->
+            <div class="product-3d">
+                <div class="product-shape shape-1"></div>
+                <div class="product-shape shape-2"></div>
+                <div class="product-shape shape-3"></div>
+                <div class="product-core"></div>
+            </div>
+
+            <!-- Hero Content -->
+            <div class="hero-content">
+                <div class="badge-3d">PREMIUM</div>
+                <h1 class="hero-title">
+                    <span class="title-line">HASH</span>
+                    <span class="title-line accent">CANNABIS</span>
+                    <span class="title-line">EXPERIENCE</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Step into the future of cannabis with our curated 3D digital marketplace. 
+                    Premium products, immersive browsing, and seamless delivery.
+                </p>
+                
+                <!-- Action Buttons -->
+                <div class="hero-actions">
+                    <button class="btn-primary-3d">
+                        <span class="btn-text">EXPLORE PRODUCTS</span>
+                        <span class="btn-glow"></span>
+                    </button>
+                    <button class="btn-secondary-3d">
+                        <span class="btn-text">VIRTUAL TOUR</span>
+                        <span class="btn-glow"></span>
+                    </button>
+                </div>
+
+                <!-- Stats -->
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">PREMIUM PRODUCTS</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">DIGITAL ACCESS</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">99%</div>
+                        <div class="stat-label">SATISFACTION</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+            <div class="scroll-text">SCROLL TO EXPLORE</div>
+        </div>
+    </section>
+
+        <!-- Location Showcase Carousel -->
+    <section class="showcase-carousel">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">EXPERIENCE</div>
+                <h2 class="section-title">PREMIUM RETAIL ENVIRONMENT</h2>
+                <p class="section-subtitle">Step inside our cutting-edge cannabis destination</p>
+            </div>
+
+            <!-- Main Carousel -->
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <!-- Slide 1 - Storefront -->
+                    <div class="carousel-slide active">
+                        <div class="slide-image">
+                            <img src="assets/carousel/storefront.jpg" alt="HASH Modern Storefront" class="carousel-img">
+                            <div class="image-overlay"></div>
+                        </div>
+                        <div class="slide-content">
+                            <h3>MODERN STOREFRONT</h3>
+                            <p>Our sleek, professional exterior welcomes you to a premium cannabis experience with discreet, sophisticated design.</p>
+                            <div class="slide-features">
+                                <span>🔒 Secure Entry</span>
+                                <span>🎯 Age Verification</span>
+                                <span>🌟 Premium Design</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 - Interior -->
+                    <div class="carousel-slide">
+                        <div class="slide-image">
+                            <img src="assets/carousel/interior.jpg" alt="HASH Luxury Interior" class="carousel-img">
+                            <div class="image-overlay"></div>
+                        </div>
+                        <div class="slide-content">
+                            <h3>LUXURY INTERIOR</h3>
+                            <p>Step into our beautifully designed space featuring clean lines, premium materials, and comfortable consultation areas.</p>
+                            <div class="slide-features">
+                                <span>🛋️ Comfortable Seating</span>
+                                <span>💡 Modern Lighting</span>
+                                <span>🌿 Clean Environment</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 - Product Display -->
+                    <div class="carousel-slide">
+                        <div class="slide-image">
+                            <img src="assets/carousel/display.jpg" alt="HASH Product Display" class="carousel-img">
+                            <div class="image-overlay"></div>
+                        </div>
+                        <div class="slide-content">
+                            <h3>3D PRODUCT GALLERY</h3>
+                            <p>Interactive digital displays allow you to explore every product in stunning 3D detail before making your selection.</p>
+                            <div class="slide-features">
+                                <span>📱 Touchscreen Displays</span>
+                                <span>🔄 360° Product Views</span>
+                                <span>💎 Premium Presentation</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4 - Consultation -->
+                    <div class="carousel-slide">
+                        <div class="slide-image">
+                            <img src="assets/carousel/consultation.jpg" alt="HASH Consultation Area" class="carousel-img">
+                            <div class="image-overlay"></div>
+                        </div>
+                        <div class="slide-content">
+                            <h3>EXPERT CONSULTATION</h3>
+                            <p>Private consultation areas where our knowledgeable staff provide personalized recommendations and education.</p>
+                            <div class="slide-features">
+                                <span>🎓 Trained Specialists</span>
+                                <span>🔒 Private Areas</span>
+                                <span>📊 Personalized Service</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 5 - Technology -->
+                    <div class="carousel-slide">
+                        <div class="slide-image">
+                            <img src="assets/carousel/technology.jpg" alt="HASH Digital Technology" class="carousel-img">
+                            <div class="image-overlay"></div>
+                        </div>
+                        <div class="slide-content">
+                            <h3>DIGITAL INTEGRATION</h3>
+                            <p>State-of-the-art technology including digital menus, mobile ordering, and seamless payment systems.</p>
+                            <div class="slide-features">
+                                <span>📲 Mobile Integration</span>
+                                <span>💳 Contactless Payment</span>
+                                <span>🚀 Fast Service</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carousel Controls -->
+                <div class="carousel-controls">
+                    <button class="carousel-prev">
+                        <span>‹</span>
+                    </button>
+                    <div class="carousel-indicators">
+                        <button class="indicator active" data-slide="0"></button>
+                        <button class="indicator" data-slide="1"></button>
+                        <button class="indicator" data-slide="2"></button>
+                        <button class="indicator" data-slide="3"></button>
+                        <button class="indicator" data-slide="4"></button>
+                    </div>
+                    <button class="carousel-next">
+                        <span>›</span>
+                    </button>
+                </div>
+
+                <!-- Auto-play Toggle -->
+                <div class="carousel-autoplay">
+                    <label class="autoplay-toggle">
+                        <input type="checkbox" id="autoplay" checked>
+                        <span class="toggle-slider"></span>
+                        <span class="toggle-label">Auto-play</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="carousel-stats">
+                <div class="stat-item">
+                    <div class="stat-number">2,500+</div>
+                    <div class="stat-label">SQ FT SPACE</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">DIGITAL DISPLAYS</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">CUSTOMER SATISFACTION</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5min</div>
+                    <div class="stat-label">AVG WAIT TIME</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+        <!-- Products Section -->
+    <section id="products" class="products-3d">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">PRODUCTS</div>
+                <h2 class="section-title">IMMERSIVE 3D CATALOG</h2>
+                <p class="section-subtitle">Browse our premium selection in stunning 3D detail</p>
+            </div>
+
+            <div class="products-grid-3d">
+                <!-- Product Card 1 - Flower -->
+                <div class="product-card-3d" data-category="flower">
+                    <div class="product-3d-preview">
+                        <div class="product-model model-1"></div>
+                        <div class="product-hover-effect"></div>
+                    </div>
+                    <div class="product-info-3d">
+                        <div class="product-badge">MOST POPULAR</div>
+                        <h3>PREMIUM FLOWER</h3>
+                        <p>Lab-tested strains with enhanced 3D visualization and terpene profiles</p>
+                        <div class="product-features">
+                            <span>🌿 25+ Premium Strains</span>
+                            <span>💎 Lab Tested & Verified</span>
+                            <span>🔥 Fresh & Potent</span>
+                            <span>🎯 THC: 18-28%</span>
+                        </div>
+                        <button class="product-btn-3d">
+                            EXPLORE IN 3D
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 - Edibles -->
+                <div class="product-card-3d" data-category="edibles">
+                    <div class="product-3d-preview">
+                        <div class="product-model model-2"></div>
+                        <div class="product-hover-effect"></div>
+                    </div>
+                    <div class="product-info-3d">
+                        <div class="product-badge">NEW</div>
+                        <h3>DIGITAL EDIBLES</h3>
+                        <p>Precisely dosed with interactive 3D packaging and flavor profiles</p>
+                        <div class="product-features">
+                            <span>🍬 5mg-100mg Options</span>
+                            <span>🎯 10+ Flavor Varieties</span>
+                            <span>⏱️ 2-4 Hour Duration</span>
+                            <span>🌱 Vegan & Gluten-Free</span>
+                        </div>
+                        <button class="product-btn-3d">
+                            EXPLORE IN 3D
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 - Concentrates -->
+                <div class="product-card-3d" data-category="concentrates">
+                    <div class="product-3d-preview">
+                        <div class="product-model model-3"></div>
+                        <div class="product-hover-effect"></div>
+                    </div>
+                    <div class="product-info-3d">
+                        <div class="product-badge">PREMIUM</div>
+                        <h3>3D CONCENTRATES</h3>
+                        <p>High-potency extracts with crystal visualization and purity metrics</p>
+                        <div class="product-features">
+                            <span>💎 70-95% Potency</span>
+                            <span>✨ Live Resin & Rosin</span>
+                            <span>🌿 Terpene Rich</span>
+                            <span>🔥 Instant Effects</span>
+                        </div>
+                        <button class="product-btn-3d">
+                            EXPLORE IN 3D
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 - Pre-rolls -->
+                <div class="product-card-3d" data-category="prerolls">
+                    <div class="product-3d-preview">
+                        <div class="product-model model-4"></div>
+                        <div class="product-hover-effect"></div>
+                    </div>
+                    <div class="product-info-3d">
+                        <div class="product-badge">CONVENIENT</div>
+                        <h3>DIGITAL PRE-ROLLS</h3>
+                        <p>Perfectly rolled with 360° view technology and strain information</p>
+                        <div class="product-features">
+                            <span>🎯 Ready to Use</span>
+                            <span>💫 Consistent Experience</span>
+                            <span>🚀 Instant Access</span>
+                            <span>📦 Single & Multi-Packs</span>
+                        </div>
+                        <button class="product-btn-3d">
+                            EXPLORE IN 3D
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 5 - Vapes -->
+                <div class="product-card-3d" data-category="vapes">
+                    <div class="product-3d-preview">
+                        <div class="product-model model-5"></div>
+                        <div class="product-hover-effect"></div>
+                    </div>
+                    <div class="product-info-3d">
+                        <div class="product-badge">DISCREET</div>
+                        <h3>DIGITAL VAPES</h3>
+                        <p>Advanced vaporizers with interactive tech specs and usage guides</p>
+                        <div class="product-features">
+                            <span>💨 Smooth & Discreet</span>
+                            <span>🔋 Rechargeable Tech</span>
+                            <span>🎯 Precise Temperature</span>
+                            <span>🚀 Instant Activation</span>
+                        </div>
+                        <button class="product-btn-3d">
+                            EXPLORE IN 3D
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 6 - Topicals -->
+                <div class="product-card-3d" data-category="topicals">
+                    <div class="product-3d-preview">
+                        <div class="product-model model-6"></div>
+                        <div class="product-hover-effect"></div>
+                    </div>
+                    <div class="product-info-3d">
+                        <div class="product-badge">WELLNESS</div>
+                        <h3>3D TOPICALS</h3>
+                        <p>Targeted relief products with interactive application demonstrations</p>
+                        <div class="product-features">
+                            <span>🧴 Targeted Relief</span>
+                            <span>⚡ Fast-Acting</span>
+                            <span>🌿 CBD & THC Blends</span>
+                            <span>💆‍♂️ Non-Psychoactive</span>
+                        </div>
+                        <button class="product-btn-3d">
+                            EXPLORE IN 3D
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Products Button -->
+            <div class="view-all-container">
+                <button class="btn-primary-3d large">
+                    <span class="btn-text">VIEW ALL 50+ PRODUCTS</span>
+                    <span class="btn-glow"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-3d">
+        <div class="container">
+            <div class="experience-grid">
+                <div class="experience-content">
+                    <div class="section-badge">EXPERIENCE</div>
+                    <h2>DIGITAL FIRST CANNABIS</h2>
+                    <p>Our platform combines cutting-edge 3D technology with premium cannabis products for an unparalleled digital experience.</p>
+                    
+                    <div class="experience-features">
+                        <div class="feature-3d">
+                            <div class="feature-icon">🔄</div>
+                            <div class="feature-text">
+                                <h4>360° PRODUCT VIEWS</h4>
+                                <p>Examine every product from all angles in stunning 3D</p>
+                            </div>
+                        </div>
+                        <div class="feature-3d">
+                            <div class="feature-icon">⚡</div>
+                            <div class="feature-text">
+                                <h4>INSTANT DELIVERY</h4>
+                                <p>Digital ordering with rapid delivery to your location</p>
+                            </div>
+                        </div>
+                        <div class="feature-3d">
+                            <div class="feature-icon">🔒</div>
+                            <div class="feature-text">
+                                <h4>SECURE & LEGAL</h4>
+                                <p>Fully compliant with age verification and security</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn-primary-3d large">
+                        <span class="btn-text">START 3D TOUR</span>
+                        <span class="btn-glow"></span>
+                    </button>
+                </div>
+
+                <div class="experience-visual">
+                    <div class="floating-interface">
+                        <div class="interface-screen"></div>
+                        <div class="interface-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-3d">
+        <div class="container">
+            <div class="cta-content">
+                <h2>READY FOR THE DIGITAL CANNABIS EXPERIENCE?</h2>
+                <p>Join thousands of satisfied customers in the future of cannabis shopping</p>
+                <div class="cta-actions">
+                    <button class="btn-primary-3d xl">
+                        <span class="btn-text">GET STARTED NOW</span>
+                        <span class="btn-glow"></span>
+                    </button>
+                    <button class="btn-secondary-3d">
+                        <span class="btn-text">WATCH DEMO</span>
+                        <span class="btn-glow"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Locations Section -->
+    <section id="locations" class="locations-3d">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">DIGITAL ACCESS</div>
+                <h2 class="section-title">FLAGSHIP EXPERIENCE CENTER</h2>
+                <p class="section-subtitle">Visit our premier digital cannabis destination</p>
+            </div>
+
+            <div class="single-location">
+                <!-- Main Location Card -->
+                <div class="flagship-card">
+                    <div class="flagship-visual">
+                        <div class="location-hologram">
+                            <div class="hologram-core"></div>
+                            <div class="hologram-ring ring-1"></div>
+                            <div class="hologram-ring ring-2"></div>
+                            <div class="hologram-ring ring-3"></div>
+                            <div class="location-pin"></div>
+                        </div>
+                        <div class="flagship-badge">FLAGSHIP</div>
+                    </div>
+                    
+                    <div class="flagship-info">
+                        <h3>HASH DIGITAL HQ</h3>
+                        <p class="flagship-description">
+                            Our premier digital cannabis experience center featuring immersive 3D product displays, 
+                            virtual reality consultations, and cutting-edge technology integration.
+                        </p>
+                        
+                        <div class="flagship-details">
+                            <div class="detail-group">
+                                <div class="detail-item">
+                                    <span class="detail-icon">📍</span>
+                                    <div class="detail-content">
+                                        <div class="detail-label">DIGITAL ADDRESS</div>
+                                        <div class="detail-value">123 Tech Avenue, San Francisco, CA 94102</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="detail-item">
+                                    <span class="detail-icon">🕒</span>
+                                    <div class="detail-content">
+                                        <div class="detail-label">DIGITAL HOURS</div>
+                                        <div class="detail-value">8:00 AM - 10:00 PM Daily</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="detail-item">
+                                    <span class="detail-icon">📞</span>
+                                    <div class="detail-content">
+                                        <div class="detail-label">QUANTUM CONNECTION</div>
+                                        <div class="detail-value">1-800-HASH-DIGITAL</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-grid">
+                                <div class="feature">
+                                    <div class="feature-icon">🚀</div>
+                                    <div class="feature-text">
+                                        <div class="feature-title">3D Product Gallery</div>
+                                        <div class="feature-desc">Immersive product visualization</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="feature">
+                                    <div class="feature-icon">💎</div>
+                                    <div class="feature-text">
+                                        <div class="feature-title">Premium Selection</div>
+                                        <div class="feature-desc">Curated cannabis products</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="feature">
+                                    <div class="feature-icon">⚡</div>
+                                    <div class="feature-text">
+                                        <div class="feature-title">Digital Delivery</div>
+                                        <div class="feature-desc">Same-day service available</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="feature">
+                                    <div class="feature-icon">🔒</div>
+                                    <div class="feature-text">
+                                        <div class="feature-title">Secure & Legal</div>
+                                        <div class="feature-desc">Age verification technology</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flagship-actions">
+                            <button class="btn-primary-3d large">
+                                <span class="btn-text">GET DIRECTIONS</span>
+                                <span class="btn-glow"></span>
+                            </button>
+                            <button class="btn-secondary-3d">
+                                <span class="btn-text">BOOK VIRTUAL TOUR</span>
+                                <span class="btn-glow"></span>
+                            </button>
+                            <button class="btn-secondary-3d">
+                                <span class="btn-text">VIEW DELIVERY ZONE</span>
+                                <span class="btn-glow"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Delivery Zone Map -->
+                <div class="delivery-zone">
+                    <div class="zone-header">
+                        <h3>DIGITAL DELIVERY NETWORK</h3>
+                        <p>Same-day delivery available within our service area</p>
+                    </div>
+                    
+                    <div class="zone-visual">
+                        <div class="zone-map">
+                            <div class="central-hub">
+                                <div class="hub-pulse"></div>
+                                <div class="hub-label">HASH HQ</div>
+                            </div>
+                            
+                            <div class="delivery-radar">
+                                <div class="radar-ring r1"></div>
+                                <div class="radar-ring r2"></div>
+                                <div class="radar-ring r3"></div>
+                                <div class="radar-sweep"></div>
+                            </div>
+                            
+                            <div class="zone-markers">
+                                <div class="marker m1" style="top: 20%; left: 30%;">
+                                    <div class="marker-dot"></div>
+                                    <div class="marker-label">Downtown</div>
+                                </div>
+                                <div class="marker m2" style="top: 60%; left: 70%;">
+                                    <div class="marker-dot"></div>
+                                    <div class="marker-label">Mission District</div>
+                                </div>
+                                <div class="marker m3" style="top: 40%; left: 50%;">
+                                    <div class="marker-dot"></div>
+                                    <div class="marker-label">SOMA</div>
+                                </div>
+                                <div class="marker m4" style="top: 70%; left: 40%;">
+                                    <div class="marker-dot"></div>
+                                    <div class="marker-label">Marina</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="zone-info">
+                            <div class="zone-stats">
+                                <div class="stat">
+                                    <div class="stat-number">20mi</div>
+                                    <div class="stat-label">Delivery Radius</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-number">45min</div>
+                                    <div class="stat-label">Average Delivery</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-number">24/7</div>
+                                    <div class="stat-label">Order Tracking</div>
+                                </div>
+                            </div>
+                            
+                            <button class="zone-check-btn">
+                                CHECK MY ADDRESS
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-3d">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">CONTACT</div>
+                <h2 class="section-title">DIGITAL CONNECTION</h2>
+                <p class="section-subtitle">Get in touch with our digital cannabis specialists</p>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-form-3d">
+                    <div class="form-header">
+                        <h3>SEND DIGITAL MESSAGE</h3>
+                        <p>Our team responds within 24 hours</p>
+                    </div>
+                    
+                    <form class="digital-form">
+                        <div class="form-group-3d">
+                            <label for="name">FULL NAME</label>
+                            <input type="text" id="name" name="name" required 
+                                   placeholder="Enter your full name">
+                            <div class="input-glow"></div>
+                        </div>
+
+                        <div class="form-group-3d">
+                            <label for="email">DIGITAL ADDRESS</label>
+                            <input type="email" id="email" name="email" required 
+                                   placeholder="your@email.com">
+                            <div class="input-glow"></div>
+                        </div>
+
+                        <div class="form-group-3d">
+                            <label for="subject">MISSION TYPE</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select inquiry type</option>
+                                <option value="product">Product Information</option>
+                                <option value="delivery">Delivery Questions</option>
+                                <option value="technical">Technical Support</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div class="input-glow"></div>
+                        </div>
+
+                        <div class="form-group-3d">
+                            <label for="message">DIGITAL TRANSMISSION</label>
+                            <textarea id="message" name="message" rows="5" required 
+                                      placeholder="Type your message here..."></textarea>
+                            <div class="input-glow"></div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary-3d large">
+                                <span class="btn-text">TRANSMIT MESSAGE</span>
+                                <span class="btn-glow"></span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="contact-info-3d">
+                    <div class="info-card">
+                        <div class="info-icon">💬</div>
+                        <h4>LIVE CHAT</h4>
+                        <p>Available 24/7 for instant support</p>
+                        <button class="info-btn">START CHAT</button>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">📞</div>
+                        <h4>DIGITAL HOTLINE</h4>
+                        <p>1-800-HASH-DIGITAL</p>
+                        <button class="info-btn">CALL NOW</button>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">✉️</div>
+                        <h4>QUANTUM MAIL</h4>
+                        <p>hello@hashdigital.com</p>
+                        <button class="info-btn">SEND EMAIL</button>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">🔗</div>
+                        <h4>SOCIAL GRID</h4>
+                        <p>Connect with our digital community</p>
+                        <div class="social-links">
+                            <button class="social-btn">IG</button>
+                            <button class="social-btn">TW</button>
+                            <button class="social-btn">FB</button>
+                            <button class="social-btn">TT</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-3d">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-3d small">HASH</div>
+                    <p>The future of cannabis is digital. The future is now.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>PRODUCTS</h4>
+                        <a href="#">Flower</a>
+                        <a href="#">Edibles</a>
+                        <a href="#">Concentrates</a>
+                        <a href="#">Pre-rolls</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>COMPANY</h4>
+                        <a href="#">About</a>
+                        <a href="#">Locations</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Press</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>SUPPORT</h4>
+                        <a href="#">Help Center</a>
+                        <a href="#">Contact</a>
+                        <a href="#">Legal</a>
+                        <a href="#">Privacy</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 HASH DIGITAL. ALL RIGHTS RESERVED. MUST BE 21+.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

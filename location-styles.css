@@ -1,0 +1,315 @@
+﻿/* Locations Section with Background Image */
+.locations-3d {
+    padding: 120px 0;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.location-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.4) contrast(1.1);
+    animation: backgroundPan 30s linear infinite;
+}
+
+.bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(10, 10, 10, 0.9) 0%,
+        rgba(5, 5, 5, 0.8) 50%,
+        rgba(0, 255, 136, 0.1) 100%
+    );
+    backdrop-filter: blur(2px);
+}
+
+@keyframes backgroundPan {
+    0% { transform: scale(1) translateX(0px); }
+    50% { transform: scale(1.05) translateX(-10px); }
+    100% { transform: scale(1) translateX(0px); }
+}
+
+.single-location-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 25px;
+    padding: 4rem;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.single-location-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--primary-glow), transparent);
+    transition: left 0.8s ease;
+}
+
+.single-location-card:hover::before {
+    left: 100%;
+}
+
+.location-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+/* Location Visual */
+.location-visual {
+    position: relative;
+}
+
+.storefront-preview {
+    position: relative;
+    height: 300px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preview-image {
+    width: 80%;
+    height: 80%;
+    background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.preview-image::before {
+    content: 'HASH';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgba(0, 255, 136, 0.3);
+    letter-spacing: 5px;
+}
+
+.preview-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(90deg, transparent 49%, rgba(0, 255, 136, 0.1) 50%, transparent 51%),
+        linear-gradient(transparent 49%, rgba(0, 255, 136, 0.1) 50%, transparent 51%);
+    background-size: 20px 20px;
+    animation: gridMove 10s linear infinite;
+}
+
+.preview-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    background: var(--primary-glow);
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.3;
+    animation: glowPulse 4s ease-in-out infinite;
+}
+
+.location-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: var(--dark);
+    padding: 0.6rem 1.2rem;
+    border-radius: 12px;
+    font-weight: 900;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px var(--primary-glow);
+    z-index: 3;
+}
+
+/* Location Details */
+.location-details h3 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--light), var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.location-description {
+    font-size: 1.1rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.location-info-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+}
+
+.info-item:hover {
+    border-color: var(--primary);
+    transform: translateX(5px);
+}
+
+.info-icon {
+    font-size: 1.3rem;
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+}
+
+.info-label {
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: var(--primary);
+    margin-bottom: 0.3rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.info-value {
+    color: var(--light);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Location Features */
+.location-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+.feature-tag {
+    background: rgba(0, 255, 136, 0.1);
+    color: var(--primary);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    transition: all 0.3s ease;
+}
+
+.feature-tag:hover {
+    background: var(--primary);
+    color: var(--dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px var(--primary-glow);
+}
+
+/* Location Actions */
+.location-actions {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .location-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .storefront-preview {
+        height: 250px;
+    }
+    
+    .single-location-card {
+        padding: 2.5rem;
+    }
+    
+    .location-details h3 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .single-location-card {
+        padding: 2rem;
+        margin: 1rem;
+    }
+    
+    .location-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .location-actions .btn-primary-3d,
+    .location-actions .btn-secondary-3d {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .location-features {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .single-location-card {
+        padding: 1.5rem;
+    }
+    
+    .location-details h3 {
+        font-size: 1.8rem;
+    }
+    
+    .info-item {
+        padding: 1rem;
+    }
+}
