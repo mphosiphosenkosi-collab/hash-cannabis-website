@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GALLERY | HASH Premium Cannabis Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* 🔥 EPIC GALLERY STYLES */
+        .gallery-hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 120px 2rem 80px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+            overflow: hidden;
+        }
+
+        .gallery-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 255, 136, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+            animation: gradientShift 8s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        .gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 🌟 ENHANCED FILTERS */
+        .gallery-filters-section {
+            position: sticky;
+            top: 80px;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 999;
+            padding: 2rem 0;
+        }
+
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            color: var(--light);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--primary-glow), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px var(--primary-glow);
+            border-color: var(--primary);
+        }
+
+        .filter-btn:hover::before {
+            left: 100%;
+        }
+
+        /* 🎨 MASONRY GRID LAYOUT */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+            padding: 0 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            aspect-ratio: 1;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, var(--primary-glow), transparent);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 2;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
+            border-color: var(--primary);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.5),
+                0 0 0 1px var(--primary-glow),
+                0 0 50px var(--primary-glow);
+        }
+
+        .gallery-item:hover::before {
+            opacity: 0.3;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.6s ease;
+            filter: brightness(0.9);
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.1);
+            filter: brightness(1.1);
+        }
+
+        /* ✨ ENHANCED OVERLAY */
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            padding: 2.5rem;
+            color: white;
+            transform: translateY(100%);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(10px);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-category {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px var(--primary-glow);
+        }
+
+        .gallery-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+            background: linear-gradient(135deg, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gallery-description {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        /* 💫 FLOATING ACTION BUTTON */
+        .gallery-fab {
+            position: fixed;
+            bottom: 3rem;
+            right: 3rem;
+            background: var(--primary);
+            color: var(--dark);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 10px 30px var(--primary-glow);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            border: none;
+        }
+
+        .gallery-fab:hover {
+            transform: scale(1.1) rotate(90deg);
+            box-shadow: 0 15px 40px var(--primary-glow);
+        }
+
+        /* 🎭 ENHANCED LIGHTBOX */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            backdrop-filter: blur(20px);
+            animation: lightboxEnter 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes lightboxEnter {
+            from { opacity: 0; transform: scale(1.1); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .lightbox-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 85%;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 
+                0 30px 80px rgba(0, 0, 0, 0.6),
+                0 0 0 1px var(--glass-border),
+                0 0 100px var(--primary-glow);
+            animation: contentZoom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes contentZoom {
+            from { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+            to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+
+        .lightbox-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid var(--glass-border);
+            color: white;
+            font-size: 2rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            z-index: 10001;
+        }
+
+        .lightbox-close:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: rotate(90deg);
+            border-color: var(--primary);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 2rem;
+            transform: translateY(-50%);
+            z-index: 10001;
+        }
+
+        .lightbox-prev,
+        .lightbox-next {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid var(--glass-border);
+            color: white;
+            font-size: 1.8rem;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .lightbox-prev:hover,
+        .lightbox-next:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: scale(1.1);
+            border-color: var(--primary);
+        }
+
+        .lightbox-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.95));
+            padding: 3rem;
+            color: white;
+            backdrop-filter: blur(10px);
+        }
+
+        .lightbox-info h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .lightbox-info p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        /* 📱 RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 1.5rem;
+                padding: 0 1rem;
+            }
+
+            .gallery-filters {
+                gap: 0.8rem;
+            }
+
+            .filter-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.8rem;
+            }
+
+            .lightbox-content {
+                max-width: 95%;
+                max-height: 80%;
+            }
+
+            .lightbox-prev,
+            .lightbox-next {
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+            }
+
+            .gallery-fab {
+                bottom: 2rem;
+                right: 2rem;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-hero {
+                min-height: 60vh;
+                padding: 100px 1rem 60px;
+            }
+
+            .gallery-filters-section {
+                padding: 1.5rem 0;
+            }
+        }
+
+        /* ✨ LOADING ANIMATION */
+        .gallery-loading {
+            display: none;
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--glass-border);
+            border-top: 3px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 0 20px var(--primary-glow);
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- 3D Background Elements -->
+    <div class="bg-grid"></div>
+    <div class="floating-cube"></div>
+    <div class="floating-pyramid"></div>
+    <div class="particles-container" id="particles"></div>
+
+    <!-- Age Warning -->
+    <div class="age-warning">
+        <div class="warning-content">
+            ⚠️ YOU MUST BE 21+ TO ENTER | BY CONTINUING YOU CONFIRM LEGAL AGE
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-3d">HASH</div>
+                <div class="logo-glow"></div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="nav-link">HOME</a></li>
+                    <li><a href="store.html" class="nav-link">STORE</a></li>
+                    <li><a href="products.html" class="nav-link active">PRODUCTS</a></li>
+                    <li><a href="index.html#contact" class="nav-link">CONTACT</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="nav-btn login-btn">LOGIN</button>
+                <button class="nav-btn cart-btn">
+                    <span class="cart-icon">🛒</span>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Gallery Hero Section -->
+    <section class="gallery-hero">
+        <div class="gallery-container">
+            <div class="section-header" style="text-align: center;">
+                <div class="badge-3d" style="margin: 0 auto 2rem;">VISUAL EXPERIENCE</div>
+                <h1 class="hero-title">
+                    <span class="title-line">HASH</span>
+                    <span class="title-line accent">GALLERY</span>
+                </h1>
+                <p class="hero-subtitle" style="max-width: 600px; margin: 0 auto;">
+                    Immerse yourself in our premium cannabis journey through stunning visuals and immersive experiences
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Filters -->
+    <section class="gallery-filters-section">
+        <div class="gallery-container">
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">ALL MEDIA</button>
+                <button class="filter-btn" data-filter="products">PRODUCTS</button>
+                <button class="filter-btn" data-filter="storefront">STOREFRONT</button>
+                <button class="filter-btn" data-filter="lifestyle">LIFESTYLE</button>
+                <button class="filter-btn" data-filter="behind-scenes">BEHIND SCENES</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="gallery-main">
+        <div class="gallery-container">
+            <div class="gallery-grid">
+                <!-- Product Images -->
+                <div class="gallery-item" data-category="products">
+                    <img src="assets/carousel/WhatsApp Image 2025-10-27 at 11.18.56_439f86db.jpg" alt="Premium Flower Collection" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">PREMIUM</span>
+                        <h3 class="gallery-title">Purple Striker</h3>
+                        <p class="gallery-description">Vibrant indoor-grown strain with energetic effects and stunning purple hues</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="products">
+                    <img src="assets/carousel/WhatsApp Image 2025-10-27 at 11.18.59_9a8e92e0.jpg" alt="Digital Edibles" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">EDIBLES</span>
+                        <h3 class="gallery-title">Precision Gummies</h3>
+                        <p class="gallery-description">Exactly dosed edibles with consistent effects and premium ingredients</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="products">
+                    <img src="assets/carousel/packaged.jpg" alt="Concentrates" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">CONCENTRATES</span>
+                        <h3 class="gallery-title">Live Resin Extract</h3>
+                        <p class="gallery-description">High-potency concentrate with preserved terpenes and intense flavor</p>
+                    </div>
+                </div>
+
+                <!-- Storefront Images -->
+                <div class="gallery-item" data-category="storefront">
+                    <img src="assets/carousel/storefront.jpg" alt="HASH Storefront" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">STOREFRONT</span>
+                        <h3 class="gallery-title">Modern Design</h3>
+                        <p class="gallery-description">Luxury cannabis experience meets contemporary design aesthetics</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="storefront">
+                    <img src="assets/carousel/logo.jpg" alt="Store Interior" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">INTERIOR</span>
+                        <h3 class="gallery-title">Premium Space</h3>
+                        <p class="gallery-description">Clean, sophisticated environment for the modern cannabis consumer</p>
+                    </div>
+                </div>
+
+                <!-- Lifestyle Images -->
+                <div class="gallery-item" data-category="lifestyle">
+                    <img src="assets/carousel/rolled_.jpg" alt="Cannabis Lifestyle" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">LIFESTYLE</span>
+                        <h3 class="gallery-title">Artisan Pre-rolls</h3>
+                        <p class="gallery-description">Handcrafted perfection for the discerning cannabis enthusiast</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="lifestyle">
+                    <img src="assets/carousel/7.jpg" alt="Organic Strains" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">ORGANIC</span>
+                        <h3 class="gallery-title">Earth-Grown</h3>
+                        <p class="gallery-description">100% organic cultivation methods for pure, natural experiences</p>
+                    </div>
+                </div>
+
+                <!-- Behind the Scenes -->
+                <div class="gallery-item" data-category="behind-scenes">
+                    <img src="assets/carousel/WhatsApp Image 2025-10-27 at 11.19.00_f4e632bb.jpg" alt="Behind the Scenes" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">HERITAGE</span>
+                        <h3 class="gallery-title">The Corner House</h3>
+                        <p class="gallery-description">Where luxury fashion meets premium cannabis culture and innovation</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="view-all-container" style="text-align: center; margin: 4rem 0;">
+                <button class="btn-primary-3d large" id="loadMore">
+                    <span class="btn-text">EXPLORE MORE</span>
+                    <span class="btn-glow"></span>
+                </button>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div class="gallery-loading" id="galleryLoading">
+                <div class="loading-spinner"></div>
+                <p style="color: var(--primary); font-weight: 600;">Loading premium content...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Action Button -->
+    <button class="gallery-fab" id="scrollToTop" title="Back to Top">
+        ↑
+    </button>
+
+    <!-- Enhanced Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">&times;</button>
+        <div class="lightbox-nav">
+            <button class="lightbox-prev" id="lightboxPrev">❮</button>
+            <button class="lightbox-next" id="lightboxNext">❯</button>
+        </div>
+        <div class="lightbox-content">
+            <img src="" alt="" class="lightbox-image" id="lightboxImage">
+            <div class="lightbox-info">
+                <h3 id="lightboxTitle"></h3>
+                <p id="lightboxDescription"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-3d">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-3d small">HASH</div>
+                    <p>Elevating cannabis culture through premium experiences and digital innovation</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>EXPLORE</h4>
+                        <a href="index.html">Home</a>
+                        <a href="store.html">Store</a>
+                        <a href="gallery.html">Gallery</a>
+                        <a href="index.html#contact">Contact</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>SUPPORT</h4>
+                        <a href="#">FAQ</a>
+                        <a href="#">Shipping</a>
+                        <a href="#">Returns</a>
+                        <a href="#">Contact</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>LEGAL</h4>
+                        <a href="#">Terms</a>
+                        <a href="#">Privacy</a>
+                        <a href="#">Age Verification</a>
+                        <a href="#">Compliance</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 HASH DIGITAL. Powered by innovation. MUST BE 18+.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 🚀 ENHANCED GALLERY JAVASCRIPT
+        document.addEventListener('DOMContentLoaded', function() {
+            // Enhanced Filter functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                        btn.style.transform = 'translateY(0)';
+                    });
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    button.style.transform = 'translateY(-3px)';
+                    
+                    const filter = button.getAttribute('data-filter');
+                    
+                    // Animate filtering
+                    galleryItems.forEach((item, index) => {
+                        setTimeout(() => {
+                            if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                                item.style.display = 'block';
+                                setTimeout(() => {
+                                    item.style.opacity = '1';
+                                    item.style.transform = 'translateY(0) scale(1)';
+                                }, 50);
+                            } else {
+                                item.style.opacity = '0';
+                                item.style.transform = 'translateY(20px) scale(0.9)';
+                                setTimeout(() => {
+                                    item.style.display = 'none';
+                                }, 300);
+                            }
+                        }, index * 50);
+                    });
+                });
+            });
+
+            // Enhanced Lightbox functionality
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            const lightboxTitle = document.getElementById('lightboxTitle');
+            const lightboxDescription = document.getElementById('lightboxDescription');
+            const lightboxClose = document.getElementById('lightboxClose');
+            const lightboxPrev = document.getElementById('lightboxPrev');
+            const lightboxNext = document.getElementById('lightboxNext');
+
+            let currentImageIndex = 0;
+            const galleryImages = Array.from(galleryItems);
+
+            galleryItems.forEach((item, index) => {
+                item.addEventListener('click', () => {
+                    openLightbox(index);
+                });
+            });
+
+            function openLightbox(index) {
+                currentImageIndex = index;
+                const item = galleryImages[index];
+                const img = item.querySelector('.gallery-image');
+                const title = item.querySelector('.gallery-title');
+                const description = item.querySelector('.gallery-description');
+                
+                lightboxImage.src = img.src;
+                lightboxTitle.textContent = title.textContent;
+                lightboxDescription.textContent = description.textContent;
+                lightbox.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                lightbox.style.animation = 'lightboxEnter 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) reverse';
+                setTimeout(() => {
+                    lightbox.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    lightbox.style.animation = '';
+                }, 300);
+            }
+
+            function navigateLightbox(direction) {
+                currentImageIndex += direction;
+                if (currentImageIndex < 0) {
+                    currentImageIndex = galleryImages.length - 1;
+                } else if (currentImageIndex >= galleryImages.length) {
+                    currentImageIndex = 0;
+                }
+                openLightbox(currentImageIndex);
+            }
+
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightboxPrev.addEventListener('click', () => navigateLightbox(-1));
+            lightboxNext.addEventListener('click', () => navigateLightbox(1));
+
+            // Enhanced keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') navigateLightbox(-1);
+                if (e.key === 'ArrowRight') navigateLightbox(1);
+            });
+
+            // Close lightbox when clicking outside the image
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+
+            // Scroll to top functionality
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Show/hide scroll to top button
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    scrollToTopBtn.style.opacity = '1';
+                    scrollToTopBtn.style.visibility = 'visible';
+                } else {
+                    scrollToTopBtn.style.opacity = '0';
+                    scrollToTopBtn.style.visibility = 'hidden';
+                }
+            });
+
+            // Enhanced load more functionality
+            const loadMoreBtn = document.getElementById('loadMore');
+            const galleryLoading = document.getElementById('galleryLoading');
+            
+            loadMoreBtn.addEventListener('click', function() {
+                this.style.opacity = '0';
+                setTimeout(() => {
+                    this.style.display = 'none';
+                    galleryLoading.style.display = 'block';
+                }, 300);
+
+                // Simulate loading more content
+                setTimeout(() => {
+                    galleryLoading.innerHTML = `
+                        <div style="text-align: center; padding: 2rem;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">🎉</div>
+                            <h3 style="color: var(--primary); margin-bottom: 1rem;">More Content Coming Soon!</h3>
+                            <p style="color: var(--gray);">We're constantly updating our gallery with new premium content</p>
+                        </div>
+                    `;
+                    
+                    setTimeout(() => {
+                        galleryLoading.style.display = 'none';
+                        loadMoreBtn.style.display = 'inline-block';
+                        setTimeout(() => {
+                            loadMoreBtn.style.opacity = '1';
+                        }, 50);
+                    }, 3000);
+                }, 2000);
+            });
+
+            // Initialize particles
+            initializeParticles();
+        });
+
+        function initializeParticles() {
+            const container = document.getElementById('particles');
+            if (!container) return;
+
+            // Enhanced particle system
+            for (let i = 0; i < 60; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.top = Math.random() * 100 + 'vh';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.width = Math.random() * 4 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                container.appendChild(particle);
+            }
+        }
+    </script>
+</body>
+</html>

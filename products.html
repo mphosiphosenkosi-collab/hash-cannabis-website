@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRODUCTS | HASH Premium Cannabis Collection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* 🚀 EPIC PRODUCTS PAGE STYLES */
+        .products-hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 120px 2rem 80px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+            overflow: hidden;
+        }
+
+        .products-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 255, 136, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
+            animation: gradientShift 8s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        .products-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 🌟 ENHANCED PRODUCT FILTERS */
+        .products-filters-section {
+            position: sticky;
+            top: 80px;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 999;
+            padding: 2rem 0;
+        }
+
+        .products-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-btn {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            color: var(--light);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--primary-glow), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px var(--primary-glow);
+            border-color: var(--primary);
+        }
+
+        .filter-btn:hover::before {
+            left: 100%;
+        }
+
+        .search-box {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            padding: 1rem 2rem;
+            color: var(--light);
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            min-width: 300px;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px var(--primary-glow);
+        }
+
+        /* 🎨 PREMIUM PRODUCT GRID */
+        .products-grid-section {
+            padding: 4rem 0;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        .product-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            padding: 2rem;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--primary-glow), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .product-card:hover::before {
+            left: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--primary);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.4),
+                0 0 0 1px var(--primary-glow),
+                0 0 50px var(--primary-glow);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+
+        .badge-popular { background: var(--primary); color: var(--dark); }
+        .badge-new { background: #8b5cf6; color: white; }
+        .badge-limited { background: #f59e0b; color: var(--dark); }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            transition: all 0.5s ease;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .product-info {
+            position: relative;
+            z-index: 2;
+        }
+
+        .product-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+            background: linear-gradient(135deg, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .product-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .spec-icon {
+            font-size: 1rem;
+        }
+
+        .product-price {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 20px var(--primary-glow);
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-add-cart {
+            flex: 1;
+            background: var(--primary);
+            color: var(--dark);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-add-cart::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-add-cart:hover::before {
+            left: 100%;
+        }
+
+        .btn-add-cart:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px var(--primary-glow);
+        }
+
+        .btn-details {
+            background: transparent;
+            border: 1px solid var(--glass-border);
+            color: var(--light);
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-details:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* 💫 QUICK VIEW MODAL */
+        .quick-view {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            backdrop-filter: blur(20px);
+            animation: modalEnter 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes modalEnter {
+            from { opacity: 0; transform: scale(1.1); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .quick-view-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            padding: 3rem;
+            max-width: 900px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            backdrop-filter: blur(20px);
+            box-shadow: 
+                0 30px 80px rgba(0, 0, 0, 0.6),
+                0 0 0 1px var(--glass-border),
+                0 0 100px var(--primary-glow);
+        }
+
+        .quick-view-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid var(--glass-border);
+            color: white;
+            font-size: 1.5rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            z-index: 10001;
+        }
+
+        .quick-view-close:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: rotate(90deg);
+            border-color: var(--primary);
+        }
+
+        /* 🛒 LIVE CART */
+        .live-cart {
+            position: fixed;
+            bottom: 3rem;
+            right: 3rem;
+            background: var(--primary);
+            color: var(--dark);
+            padding: 1.2rem 2rem;
+            border-radius: 20px;
+            font-weight: 800;
+            box-shadow: 0 15px 40px var(--primary-glow);
+            z-index: 1000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .live-cart:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 50px var(--primary-glow);
+        }
+
+        .cart-count-bubble {
+            background: var(--dark);
+            color: var(--primary);
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 900;
+        }
+
+        /* 📱 RESPONSIVE DESIGN */
+        @media (max-width: 1024px) {
+            .products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .products-filters {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .search-box {
+                min-width: 100%;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 0 1rem;
+            }
+
+            .product-actions {
+                flex-direction: column;
+            }
+
+            .quick-view-content {
+                padding: 2rem;
+                width: 95%;
+            }
+
+            .live-cart {
+                bottom: 2rem;
+                right: 2rem;
+                padding: 1rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-hero {
+                min-height: 60vh;
+                padding: 100px 1rem 60px;
+            }
+
+            .products-filters-section {
+                padding: 1.5rem 0;
+            }
+
+            .filter-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* ✨ LOADING STATES */
+        .products-loading {
+            display: none;
+            text-align: center;
+            padding: 4rem;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--glass-border);
+            border-top: 3px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 0 20px var(--primary-glow);
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- 3D Background Elements -->
+    <div class="bg-grid"></div>
+    <div class="floating-cube"></div>
+    <div class="floating-pyramid"></div>
+    <div class="particles-container" id="particles"></div>
+
+    <!-- Age Warning -->
+    <div class="age-warning">
+        <div class="warning-content">
+            ⚠️ YOU MUST BE 21+ TO ENTER | BY CONTINUING YOU CONFIRM LEGAL AGE
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-3d">HASH</div>
+                <div class="logo-glow"></div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="nav-link">HOME</a></li>
+                    <li><a href="store.html" class="nav-link active">STORE</a></li>
+                    <li><a href="gallery.html" class="nav-link">GALLERY</a></li>
+                    <li><a href="index.html#contact" class="nav-link">CONTACT</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="nav-btn login-btn">LOGIN</button>
+                <button class="nav-btn cart-btn">
+                    <span class="cart-icon">🛒</span>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Products Hero -->
+    <section class="products-hero">
+        <div class="products-container">
+            <div class="section-header" style="text-align: center;">
+                <div class="badge-3d" style="margin: 0 auto 2rem;">PREMIUM COLLECTION</div>
+                <h1 class="hero-title">
+                    <span class="title-line">HASH</span>
+                    <span class="title-line accent">PRODUCTS</span>
+                </h1>
+                <p class="hero-subtitle" style="max-width: 600px; margin: 0 auto;">
+                    Discover our curated selection of premium cannabis products. Lab-tested, quality guaranteed, and delivered with excellence.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Filters -->
+    <section class="products-filters-section">
+        <div class="products-container">
+            <div class="products-filters">
+                <button class="filter-btn active" data-category="all">ALL PRODUCTS</button>
+                <button class="filter-btn" data-category="flower">FLOWER</button>
+                <button class="filter-btn" data-category="edibles">EDIBLES</button>
+                <button class="filter-btn" data-category="concentrates">CONCENTRATES</button>
+                <button class="filter-btn" data-category="prerolls">PRE-ROLLS</button>
+                <button class="filter-btn" data-category="accessories">ACCESSORIES</button>
+                <input type="text" class="search-box" placeholder="🔍 Search products..." id="productSearch">
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="products-grid-section">
+        <div class="products-container">
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here dynamically -->
+            </div>
+
+            <!-- Load More Button -->
+            <div class="view-all-container" style="text-align: center; margin: 4rem 0;">
+                <button class="btn-primary-3d large" id="loadMoreProducts">
+                    <span class="btn-text">LOAD MORE PRODUCTS</span>
+                    <span class="btn-glow"></span>
+                </button>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div class="products-loading" id="productsLoading">
+                <div class="loading-spinner"></div>
+                <p style="color: var(--primary); font-weight: 600;">Loading premium products...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Cart -->
+    <button class="live-cart" id="liveCart">
+        <span>🛒</span>
+        <span id="cartTotal">R0.00</span>
+        <div class="cart-count-bubble" id="cartBubble">0</div>
+    </button>
+
+    <!-- Quick View Modal -->
+    <div class="quick-view" id="quickView">
+        <button class="quick-view-close" id="quickViewClose">&times;</button>
+        <div class="quick-view-content" id="quickViewContent">
+            <!-- Product details will be loaded here -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-3d">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-3d small">HASH</div>
+                    <p>Elevating cannabis culture through premium experiences and digital innovation</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>EXPLORE</h4>
+                        <a href="index.html">Home</a>
+                        <a href="products.html">Products</a>
+                        <a href="gallery.html">Gallery</a>
+                        <a href="index.html#contact">Contact</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>SUPPORT</h4>
+                        <a href="#">FAQ</a>
+                        <a href="#">Shipping</a>
+                        <a href="#">Returns</a>
+                        <a href="#">Contact</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>LEGAL</h4>
+                        <a href="#">Terms</a>
+                        <a href="#">Privacy</a>
+                        <a href="#">Age Verification</a>
+                        <a href="#">Compliance</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 HASH DIGITAL. Premium cannabis experiences. MUST BE 18+.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 🚀 EPIC PRODUCTS PAGE JAVASCRIPT
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sample Product Data - Replace with your actual products
+            const products = [
+                {
+                    id: 1,
+                    name: "Purple Striker",
+                    category: "flower",
+                    price: "R120",
+                    badge: "popular",
+                    image: "assets/carousel/WhatsApp Image 2025-10-27 at 11.18.56_439f86db.jpg",
+                    description: "Premium indoor-grown strain with vibrant purple hues and energetic effects. Perfect for daytime creativity and focus.",
+                    specs: {
+                        thc: "22% THC",
+                        cbd: "1% CBD",
+                        type: "Sativa Dominant",
+                        effects: "Energetic, Creative"
+                    },
+                    stock: 15
+                },
+                {
+                    id: 2,
+                    name: "Digital Edibles Pack",
+                    category: "edibles",
+                    price: "R200",
+                    badge: "new",
+                    image: "assets/carousel/WhatsApp Image 2025-10-27 at 11.18.59_9a8e92e0.jpg",
+                    description: "Precisely dosed gummies with 10mg THC each. Consistent effects and delicious fruit flavors.",
+                    specs: {
+                        thc: "10mg per piece",
+                        cbd: "0mg CBD",
+                        type: "Hybrid",
+                        effects: "Relaxing, Euphoric"
+                    },
+                    stock: 25
+                },
+                {
+                    id: 3,
+                    name: "Live Resin Concentrate",
+                    category: "concentrates",
+                    price: "R350",
+                    badge: "limited",
+                    image: "assets/carousel/packaged.jpg",
+                    description: "High-potency live resin with preserved terpenes for maximum flavor and intense effects.",
+                    specs: {
+                        thc: "85% THC",
+                        cbd: "2% CBD",
+                        type: "Hybrid",
+                        effects: "Intense, Flavorful"
+                    },
+                    stock: 8
+                },
+                {
+                    id: 4,
+                    name: "Artisan Pre-roll Pack",
+                    category: "prerolls",
+                    price: "R150",
+                    badge: "popular",
+                    image: "assets/carousel/rolled_.jpg",
+                    description: "Handcrafted pre-rolled joints using premium flower. Perfect for convenience and consistency.",
+                    specs: {
+                        thc: "18% THC",
+                        cbd: "1% CBD",
+                        type: "Indica",
+                        effects: "Relaxing, Smooth"
+                    },
+                    stock: 30
+                },
+                {
+                    id: 5,
+                    name: "Organic OG",
+                    category: "flower",
+                    price: "R140",
+                    badge: "new",
+                    image: "assets/carousel/7.jpg",
+                    description: "100% organic cultivation with earthy tones and deeply relaxing effects. Grown with natural methods.",
+                    specs: {
+                        thc: "20% THC",
+                        cbd: "2% CBD",
+                        type: "Indica",
+                        effects: "Relaxing, Calming"
+                    },
+                    stock: 12
+                },
+                {
+                    id: 6,
+                    name: "CBD Relief Tonic",
+                    category: "edibles",
+                    price: "R180",
+                    badge: "new",
+                    image: "assets/carousel/logo.jpg",
+                    description: "CBD-focused tonic for relief and relaxation without psychoactive effects. Perfect for daily wellness.",
+                    specs: {
+                        thc: "0.3% THC",
+                        cbd: "25mg/ml CBD",
+                        type: "Wellness",
+                        effects: "Calming, Relief"
+                    },
+                    stock: 20
+                },
+                {
+                    id: 7,
+                    name: "Glass Pipe Set",
+                    category: "accessories",
+                    price: "R250",
+                    badge: "popular",
+                    image: "assets/carousel/storefront.jpg",
+                    description: "Premium glass pipe set with multiple pieces for the ultimate smoking experience.",
+                    specs: {
+                        material: "Borosilicate Glass",
+                        pieces: "3 Piece Set",
+                        cleaning: "Easy Maintenance",
+                        style: "Modern Design"
+                    },
+                    stock: 10
+                },
+                {
+                    id: 8,
+                    name: "HASH Grinder",
+                    category: "accessories",
+                    price: "R120",
+                    badge: "new",
+                    image: "assets/carousel/WhatsApp Image 2025-10-27 at 11.19.00_f4e632bb.jpg",
+                    description: "Premium 4-piece grinder with kief catcher. Durable construction and smooth grinding.",
+                    specs: {
+                        material: "Aerospace Aluminum",
+                        pieces: "4 Pieces",
+                        features: "Kief Catcher",
+                        size: "Medium"
+                    },
+                    stock: 18
+                }
+            ];
+
+            // Shopping Cart
+            let cart = [];
+
+            // Initialize Products Page
+            initializeProductsPage();
+
+            function initializeProductsPage() {
+                loadProducts();
+                setupFilters();
+                setupSearch();
+                setupCart();
+                setupQuickView();
+            }
+
+            function loadProducts() {
+                const productsGrid = document.getElementById('productsGrid');
+                productsGrid.innerHTML = '';
+
+                products.forEach(product => {
+                    const productCard = createProductCard(product);
+                    productsGrid.appendChild(productCard);
+                });
+            }
+
+            function createProductCard(product) {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.setAttribute('data-category', product.category);
+                card.setAttribute('data-id', product.id);
+                card.setAttribute('data-name', product.name.toLowerCase());
+
+                card.innerHTML = `
+                    <div class="product-badge badge-${product.badge}">
+                        ${product.badge.toUpperCase()}
+                    </div>
+                    <img src="${product.image}" alt="${product.name}" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">${product.name}</h3>
+                        <p class="product-description">${product.description}</p>
+                        <div class="product-specs">
+                            <div class="spec-item">
+                                <span class="spec-icon">⚡</span>
+                                <span>${product.specs.thc}</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-icon">🌿</span>
+                                <span>${product.specs.cbd}</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-icon">🔬</span>
+                                <span>${product.specs.type}</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-icon">💫</span>
+                                <span>${product.specs.effects}</span>
+                            </div>
+                        </div>
+                        <div class="product-price">${product.price}</div>
+                        <div class="product-actions">
+                            <button class="btn-add-cart" data-id="${product.id}">
+                                ADD TO CART
+                            </button>
+                            <button class="btn-details" data-id="${product.id}">
+                                DETAILS
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+                return card;
+            }
+
+            function setupFilters() {
+                const filterButtons = document.querySelectorAll('.filter-btn');
+                
+                filterButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        // Update active button
+                        filterButtons.forEach(btn => {
+                            btn.classList.remove('active');
+                            btn.style.transform = 'translateY(0)';
+                        });
+                        
+                        button.classList.add('active');
+                        button.style.transform = 'translateY(-3px)';
+                        
+                        const category = button.getAttribute('data-category');
+                        filterProducts(category);
+                    });
+                });
+            }
+
+            function setupSearch() {
+                const searchBox = document.getElementById('productSearch');
+                
+                searchBox.addEventListener('input', (e) => {
+                    const searchTerm = e.target.value.toLowerCase();
+                    filterProducts('all', searchTerm);
+                });
+            }
+
+            function filterProducts(category, searchTerm = '') {
+                const allProducts = document.querySelectorAll('.product-card');
+                
+                allProducts.forEach((product, index) => {
+                    const productCategory = product.getAttribute('data-category');
+                    const productName = product.getAttribute('data-name');
+                    
+                    const categoryMatch = category === 'all' || productCategory === category;
+                    const searchMatch = productName.includes(searchTerm) || searchTerm === '';
+                    
+                    setTimeout(() => {
+                        if (categoryMatch && searchMatch) {
+                            product.style.display = 'block';
+                            setTimeout(() => {
+                                product.style.opacity = '1';
+                                product.style.transform = 'translateY(0) scale(1)';
+                            }, index * 50);
+                        } else {
+                            product.style.opacity = '0';
+                            product.style.transform = 'translateY(20px) scale(0.9)';
+                            setTimeout(() => {
+                                product.style.display = 'none';
+                            }, 300);
+                        }
+                    }, index * 30);
+                });
+            }
+
+            function setupCart() {
+                // Add to cart functionality
+                document.addEventListener('click', function(e) {
+                    if (e.target.classList.contains('btn-add-cart')) {
+                        const productId = parseInt(e.target.getAttribute('data-id'));
+                        addToCart(productId, e.target);
+                    }
+                });
+
+                // Live cart click
+                document.getElementById('liveCart').addEventListener('click', showCartSummary);
+            }
+
+            function addToCart(productId, button) {
+                const product = products.find(p => p.id === productId);
+                
+                if (product && product.stock > 0) {
+                    cart.push(product);
+                    product.stock--;
+                    updateCartDisplay();
+                    
+                    // Visual feedback
+                    const originalText = button.textContent;
+                    button.textContent = 'ADDED!';
+                    button.style.background = '#10b981';
+                    
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.style.background = '';
+                    }, 1500);
+                } else {
+                    button.textContent = 'OUT OF STOCK';
+                    button.style.background = '#ef4444';
+                    setTimeout(() => {
+                        button.textContent = 'ADD TO CART';
+                        button.style.background = '';
+                    }, 1500);
+                }
+            }
+
+            function updateCartDisplay() {
+                const total = cart.reduce((sum, product) => {
+                    return sum + parseInt(product.price.replace('R', ''));
+                }, 0);
+                
+                // Update cart count in header
+                document.querySelector('.cart-count').textContent = cart.length;
+                
+                // Update live cart
+                document.getElementById('cartTotal').textContent = `R${total}`;
+                document.getElementById('cartBubble').textContent = cart.length;
+            }
+
+            function showCartSummary() {
+                if (cart.length === 0) {
+                    alert('🛒 Your cart is empty\n\nAdd some premium products to get started!');
+                    return;
+                }
+
+                const itemList = cart.map(item => `• ${item.name} - ${item.price}`).join('\n');
+                const total = cart.reduce((sum, item) => sum + parseInt(item.price.replace('R', '')), 0);
+                
+                alert(`🛒 CART SUMMARY:\n\n${itemList}\n\n💎 TOTAL: R${total}\n\nProceed to checkout?`);
+            }
+
+            function setupQuickView() {
+                const quickView = document.getElementById('quickView');
+                const quickViewClose = document.getElementById('quickViewClose');
+                const quickViewContent = document.getElementById('quickViewContent');
+
+                // Details button click
+                document.addEventListener('click', function(e) {
+                    if (e.target.classList.contains('btn-details')) {
+                        const productId = parseInt(e.target.getAttribute('data-id'));
+                        openQuickView(productId);
+                    }
+                });
+
+                quickViewClose.addEventListener('click', () => {
+                    closeQuickView();
+                });
+
+                // Close when clicking outside
+                quickView.addEventListener('click', (e) => {
+                    if (e.target === quickView) {
+                        closeQuickView();
+                    }
+                });
+            }
+
+            function openQuickView(productId) {
+                const product = products.find(p => p.id === productId);
+                const quickViewContent = document.getElementById('quickViewContent');
+                const quickView = document.getElementById('quickView');
+
+                if (product) {
+                    quickViewContent.innerHTML = `
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+                            <div>
+                                <img src="${product.image}" alt="${product.name}" style="width: 100%; border-radius: 20px; margin-bottom: 2rem;">
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                    ${Object.entries(product.specs).map(([key, value]) => `
+                                        <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 15px; text-align: center;">
+                                            <div style="font-size: 0.8rem; color: var(--primary); margin-bottom: 0.5rem;">${key.toUpperCase()}</div>
+                                            <div style="font-weight: 600;">${value}</div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                            <div>
+                                <div class="product-badge badge-${product.badge}" style="position: static; display: inline-block; margin-bottom: 1rem;">
+                                    ${product.badge.toUpperCase()}
+                                </div>
+                                <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(135deg, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">${product.name}</h2>
+                                <p style="color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 2rem; font-size: 1.1rem;">${product.description}</p>
+                                <div style="font-size: 3rem; font-weight: 900; color: var(--primary); margin-bottom: 2rem; text-shadow: 0 0 30px var(--primary-glow);">${product.price}</div>
+                                <div style="color: var(--gray); margin-bottom: 2rem;">
+                                    <strong>Stock:</strong> ${product.stock} units available
+                                </div>
+                                <button class="btn-add-cart" data-id="${product.id}" style="width: 100%; padding: 1.5rem; font-size: 1.1rem;">
+                                    ADD TO CART - ${product.price}
+                                </button>
+                            </div>
+                        </div>
+                    `;
+
+                    quickView.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            function closeQuickView() {
+                const quickView = document.getElementById('quickView');
+                quickView.style.animation = 'modalEnter 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) reverse';
+                setTimeout(() => {
+                    quickView.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    quickView.style.animation = '';
+                }, 300);
+            }
+
+            // Load more products functionality
+            document.getElementById('loadMoreProducts').addEventListener('click', function() {
+                const loading = document.getElementById('productsLoading');
+                const button = this;
+                
+                button.style.opacity = '0';
+                setTimeout(() => {
+                    button.style.display = 'none';
+                    loading.style.display = 'block';
+                }, 300);
+
+                // Simulate loading more products
+                setTimeout(() => {
+                    loading.innerHTML = `
+                        <div style="text-align: center; padding: 2rem;">
+                            <div style="font-size: 4rem; margin-bottom: 1rem;">🎯</div>
+                            <h3 style="color: var(--primary); margin-bottom: 1rem;">More Premium Products Coming!</h3>
+                            <p style="color: var(--gray);">We're constantly expanding our collection with new strains and products</p>
+                        </div>
+                    `;
+                    
+                    setTimeout(() => {
+                        loading.style.display = 'none';
+                        button.style.display = 'inline-block';
+                        setTimeout(() => {
+                            button.style.opacity = '1';
+                        }, 50);
+                    }, 3000);
+                }, 2000);
+            });
+
+            // Initialize particles
+            initializeParticles();
+        });
+
+        function initializeParticles() {
+            const container = document.getElementById('particles');
+            if (!container) return;
+
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.top = Math.random() * 100 + 'vh';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.width = Math.random() * 4 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                container.appendChild(particle);
+            }
+        }
+    </script>
+</body>
+</html>
